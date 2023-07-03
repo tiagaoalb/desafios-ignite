@@ -1,0 +1,26 @@
+.topbar {
+  background: var(--gray-700);
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topbar img {
+  width: 1.375rem;
+  flex-shrink: 0;
+}
+
+.blueText {
+  color: var(--blue);
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-left: 10px;
+}
+
+.purpleDarkText {
+  color: var(--purple-dark);
+  font-size: 2.5rem;
+  font-weight: 900;
+}
