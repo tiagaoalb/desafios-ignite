@@ -1,0 +1,39 @@
+.taskinput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="text"] {
+  background: var(--gray-500);
+  border: 1px solid var(--gray-700);
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 16px;
+  width: 37.875rem;
+}
+
+button[type="submit"] {
+  background: var(--blue-dark);
+  border: none;
+  border-radius: 8px;
+  color: var(--gray-100);
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  padding: 16px;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+button[type="submit"]:hover {
+  background: var(--blue);
+}
+
+button[type="submit"] img {
+  width: 1rem;
+  margin-left: 8px;
+}
