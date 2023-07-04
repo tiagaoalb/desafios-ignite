@@ -1,5 +1,6 @@
 import { TaskInputBar } from './components/TaskInputBar'
-import { TopBar } from './components/TopBaar'
+import { TaskStatus } from './components/TaskStatus'
+import { TopBar } from './components/TopBar'
 
 import './global.css'
 
@@ -8,6 +9,7 @@ export function App() {
     <div>
       <TopBar />
       <TaskInputBar />
+      <TaskStatus />
     </div>
   )
 }
