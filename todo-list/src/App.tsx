@@ -1,4 +1,5 @@
 import { TaskInputBar } from './components/TaskInputBar'
+import { TaskPanel } from './components/TaskPanel'
 import { TaskStatus } from './components/TaskStatus'
 import { TopBar } from './components/TopBar'
 
@@ -10,6 +11,7 @@ export function App() {
       <TopBar />
       <TaskInputBar />
       <TaskStatus />
+      <TaskPanel />
     </div>
   )
 }
