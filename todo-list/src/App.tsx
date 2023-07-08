@@ -1,4 +1,3 @@
-import { TaskCard } from './components/TaskCard'
 import { TaskInputBar } from './components/TaskInputBar'
 import { TaskPanel } from './components/TaskPanel'
 import { TaskStatus } from './components/TaskStatus'
@@ -13,7 +12,6 @@ export function App() {
       <TaskInputBar />
       <TaskStatus />
       <TaskPanel />
-      <TaskCard />
     </div>
   )
 }
