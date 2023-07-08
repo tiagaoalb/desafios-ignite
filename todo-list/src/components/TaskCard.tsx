@@ -3,13 +3,22 @@ import styles from './TaskCard.module.css'
 import Unchecked from '../assets/unchecked.svg'
 import TrashCan from '../assets/trash.svg'
 
-export function TaskCard() {
+interface TaskCardProps {
+  description: string
+  isComplete: boolean
+}
+
+export function TaskCard({ description, isComplete }: TaskCardProps) {
   return (
     <div className={styles.card}>
       <div className={styles.content}>
-        <img src={Unchecked} alt="" />
-        <span>A descrição da tarefa vai aqui</span>
-        <img src={TrashCan} alt="" />
+        <button>
+          <img src={Unchecked} />
+        </button>
+        <span>{description}</span>
+        <button>
+          <img src={TrashCan} />
+        </button>
       </div>
     </div>
   )
