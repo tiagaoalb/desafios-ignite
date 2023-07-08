@@ -1,6 +1,7 @@
 .card {
   display: flex;
   justify-content: center;
+  margin-bottom: 12px;
 }
 
 .content {
@@ -16,4 +17,9 @@
   width: 46rem;
   height: 4.5rem;
   padding: 16px;
+}
+
+button {
+  background-color: transparent;
+  border: none;
 }
