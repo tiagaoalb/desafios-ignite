@@ -24,8 +24,9 @@ const tasks = [
 
 export function TaskPanel() {
   return (
-      <main>
-        {tasks.length > 0 ? (tasks.map((task) => {
+    <main>
+      {tasks.length > 0 ? (
+        tasks.map((task) => {
           return (
             <TaskCard
               key={task.id}
@@ -33,19 +34,18 @@ export function TaskPanel() {
               isComplete={task.isComplete}
             />
           )
-        })) : 
-        (
-          <div className={styles.panel}>
-            <div className={styles.content}>
+        })
+      ) : (
+        <div className={styles.panel}>
+          <div className={styles.content}>
             <img src={Clipboard} alt="Figura de uma prancheta" />
             <p>
               <strong>Você ainda não tem tarefas cadastradas</strong>
               Crie tarefas e organize seus itens a fazer
             </p>
-            </div>
           </div>
-        )
-        }
-      </main>
+        </div>
+      )}
+    </main>
   )
 }
