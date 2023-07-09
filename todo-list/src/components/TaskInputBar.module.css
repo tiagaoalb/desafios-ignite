@@ -5,18 +5,25 @@
   margin-top: calc(0px - 1.5rem - 6px);
 }
 
-input[type="text"] {
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type='text'] {
   background: var(--gray-500);
   border: 1px solid var(--gray-700);
   border-radius: 8px;
   box-sizing: border-box;
+  color: var(--gray-100);
   padding: 16px;
   width: 39.875rem;
   height: 3.375rem;
   caret-color: var(--gray-100);
 }
 
-button[type="submit"] {
+button[type='submit'] {
   background: var(--blue-dark);
   border: none;
   border-radius: 8px;
@@ -32,16 +39,16 @@ button[type="submit"] {
   transition: 0.1s;
 }
 
-button[type="submit"]:hover {
+button[type='submit']:hover {
   background: var(--blue);
 }
 
-button[type="submit"] img {
+button[type='submit'] img {
   width: 1rem;
   margin-left: 8px;
 }
 
-button[type="submit"]:disabled {
+button[type='submit']:disabled {
   background: var(--gray-500);
   cursor: not-allowed;
 }
