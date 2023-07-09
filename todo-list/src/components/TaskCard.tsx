@@ -3,10 +3,11 @@ import Checked from '../assets/checked.svg'
 import Unchecked from '../assets/unchecked.svg'
 import TrashCan from '../assets/trash.svg'
 
-interface TaskCardProps {
+export interface TaskCardProps {
+  id: string
   description: string
   isComplete: boolean
-  toggleCompletion: () => void
+  toggleCompletion?: () => void
 }
 
 export function TaskCard({

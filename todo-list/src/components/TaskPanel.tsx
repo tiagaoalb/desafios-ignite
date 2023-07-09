@@ -4,6 +4,8 @@ import { TaskCard } from './TaskCard'
 
 import { v4 as uuidv4 } from 'uuid'
 import { useState } from 'react'
+import { TaskInputBar, TaskInputBarProps } from './TaskInputBar'
+import { TaskStatus } from './TaskStatus'
 
 export function TaskPanel() {
   const [tasks, setTasks] = useState([
@@ -38,13 +40,20 @@ export function TaskPanel() {
     setTasks(updatedTasks)
   }
 
+  const addTask = (newTask: TaskInputBarProps) => {
+    setTasks([...tasks, newTask])
+  }
+
   return (
     <main>
+      <TaskInputBar addTask={addTask} />
+      <TaskStatus />
       {tasks.length > 0 ? (
         tasks.map((task) => {
           return (
             <TaskCard
               key={task.id}
+              id={task.id}
               description={task.description}
               isComplete={task.isComplete}
               toggleCompletion={() => toggleCompletion(task.id)}
