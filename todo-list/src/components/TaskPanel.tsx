@@ -3,26 +3,41 @@ import Clipboard from '../assets/clipboard.png'
 import { TaskCard } from './TaskCard'
 
 import { v4 as uuidv4 } from 'uuid'
-
-const tasks = [
-  {
-    id: uuidv4(),
-    description: 'A descrição da tarefa vai aqui',
-    isComplete: false,
-  },
-  {
-    id: uuidv4(),
-    description: 'Aprender a fazer essa bagaça',
-    isComplete: true,
-  },
-  {
-    id: uuidv4(),
-    description: 'Bora destruir o React!',
-    isComplete: true,
-  },
-]
+import { useState } from 'react'
 
 export function TaskPanel() {
+  const [tasks, setTasks] = useState([
+    {
+      id: uuidv4(),
+      description: 'A descrição da tarefa vai aqui',
+      isComplete: false,
+    },
+    {
+      id: uuidv4(),
+      description: 'Aprender a fazer essa bagaça',
+      isComplete: true,
+    },
+    {
+      id: uuidv4(),
+      description: 'Bora destruir o React!',
+      isComplete: true,
+    },
+  ])
+
+  const toggleCompletion = (taskId: string) => {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return {
+          ...task,
+          isComplete: !task.isComplete,
+        }
+      }
+      return task
+    })
+
+    setTasks(updatedTasks)
+  }
+
   return (
     <main>
       {tasks.length > 0 ? (
@@ -32,6 +47,7 @@ export function TaskPanel() {
               key={task.id}
               description={task.description}
               isComplete={task.isComplete}
+              toggleCompletion={() => toggleCompletion(task.id)}
             />
           )
         })
