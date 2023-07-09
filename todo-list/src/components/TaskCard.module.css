@@ -9,6 +9,7 @@
   border: 1px solid var(--gray-400, #333);
   background: var(--gray-500, #262626);
   box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+  color: var(--gray-100, #F2F2F2);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -22,4 +23,10 @@
 button {
   background-color: transparent;
   border: none;
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: var(--gray-300, #ccc);
 }
