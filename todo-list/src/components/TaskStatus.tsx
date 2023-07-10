@@ -2,7 +2,7 @@ import styles from './TaskStatus.module.css'
 
 interface TaskStatusProps {
   created: number;
-  finished: number;
+  finished: string;
 }
 
 export function TaskStatus({ created, finished }: TaskStatusProps) {
