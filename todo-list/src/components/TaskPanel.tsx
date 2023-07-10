@@ -4,7 +4,7 @@ import { TaskCard } from './TaskCard'
 
 import { v4 as uuidv4 } from 'uuid'
 import { useState } from 'react'
-import { TaskInputBar, TaskInputBarProps } from './TaskInputBar'
+import { TaskInputBar, AddTaskFunction } from './TaskInputBar'
 import { TaskStatus } from './TaskStatus'
 
 export function TaskPanel() {
@@ -40,14 +40,19 @@ export function TaskPanel() {
     setTasks(updatedTasks)
   }
 
-  const addTask = (newTask: TaskInputBarProps) => {
-    setTasks([...tasks, newTask])
+  const addTask: AddTaskFunction = (newTask) => {
+    const updatedTasks = [...tasks, newTask]
+    setTasks(updatedTasks)
   }
+
+  const handleCreatedTask = tasks.filter((task) => !task.isComplete).length
+
+  const handleFinishedTask = tasks.filter((task) => task.isComplete).length
 
   return (
     <main>
       <TaskInputBar addTask={addTask} />
-      <TaskStatus />
+      <TaskStatus created={handleCreatedTask} finished={handleFinishedTask} />
       {tasks.length > 0 ? (
         tasks.map((task) => {
           return (
