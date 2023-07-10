@@ -49,10 +49,14 @@ export function TaskPanel() {
 
   const handleFinishedTask = tasks.filter((task) => task.isComplete).length
 
+  const handleTotalTasks = tasks.length
+
+  const finishedTaskText = `${handleFinishedTask} de ${handleTotalTasks}`
+
   return (
     <main>
       <TaskInputBar addTask={addTask} />
-      <TaskStatus created={handleCreatedTask} finished={handleFinishedTask} />
+      <TaskStatus created={handleCreatedTask} finished={finishedTaskText} />
       {tasks.length > 0 ? (
         tasks.map((task) => {
           return (
