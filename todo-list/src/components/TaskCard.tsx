@@ -8,13 +8,19 @@ export interface TaskCardProps {
   description: string
   isComplete: boolean
   toggleCompletion?: () => void
+  onDeleteTask: (taskId: string) => void
 }
 
 export function TaskCard({
   description,
   isComplete,
   toggleCompletion,
+  onDeleteTask
 }: TaskCardProps) {
+  const handleDeleteTask = () => {
+    onDeleteTask(description)
+  }
+
   return (
     <div className={styles.card}>
       <div className={styles.content}>
@@ -22,7 +28,7 @@ export function TaskCard({
           {isComplete ? <img src={Checked} /> : <img src={Unchecked} />}
         </button>
         <span className={isComplete ? styles.completed: ''}>{description}</span>
-        <button>
+        <button onClick={handleDeleteTask}>
           <img src={TrashCan} />
         </button>
       </div>

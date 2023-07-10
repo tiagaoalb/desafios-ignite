@@ -41,11 +41,9 @@ export function TaskPanel() {
   }
 
   const addTask: AddTaskFunction = (newTask) => {
-    const updatedTasks = [...tasks, newTask]
-    setTasks(updatedTasks)
+    const createdTask = [...tasks, newTask]
+    setTasks(createdTask)
   }
-
-  const handleCreatedTask = tasks.filter((task) => !task.isComplete).length
 
   const handleFinishedTask = tasks.filter((task) => task.isComplete).length
 
@@ -53,10 +51,15 @@ export function TaskPanel() {
 
   const finishedTaskText = `${handleFinishedTask} de ${handleTotalTasks}`
 
+  const deleteTask = (description: string) => {
+    const deletedTasks = tasks.filter((task) => task.description !== description)
+    setTasks(deletedTasks)
+  }
+
   return (
     <main>
       <TaskInputBar addTask={addTask} />
-      <TaskStatus created={handleCreatedTask} finished={finishedTaskText} />
+      <TaskStatus created={handleTotalTasks} finished={finishedTaskText} />
       {tasks.length > 0 ? (
         tasks.map((task) => {
           return (
@@ -66,6 +69,7 @@ export function TaskPanel() {
               description={task.description}
               isComplete={task.isComplete}
               toggleCompletion={() => toggleCompletion(task.id)}
+              onDeleteTask={deleteTask}
             />
           )
         })
