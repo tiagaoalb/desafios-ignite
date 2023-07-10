@@ -1,13 +1,20 @@
 import styles from './TaskInputBar.module.css'
 import plus from '../assets/plus.svg'
 import { useState } from 'react'
-import { TaskCardProps } from './TaskCard'
 
 import { v4 as uuidv4 } from 'uuid'
 
-export interface TaskInputBarProps extends TaskCardProps {
-  addTask: (newTask: TaskCardProps) => void
+export interface Task {
+  id: string;
+  description: string;
+  isComplete: boolean;
 }
+
+interface TaskInputBarProps {
+  addTask: AddTaskFunction;
+}
+
+export type AddTaskFunction = (newTask: Task) => void;
 
 export function TaskInputBar({ addTask }: TaskInputBarProps) {
   const [inputValue, setInputValue] = useState('')
